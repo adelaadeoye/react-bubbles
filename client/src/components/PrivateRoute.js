@@ -12,7 +12,7 @@ const PrivateRoute =({component: Component,render:Render,...rest})=>{
                 if(Render)return Render (props)
             }
             else {
-                return <Redirect to ="login"/>
+                return <Redirect to ="/"/>
             }
         }}
         />

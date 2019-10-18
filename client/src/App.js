@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-      <Route  exact path="/login" render={(props)=><Login {...props}/>} />
+      <Route  exact path="/" render={(props)=><Login {...props}/>} />
 
         {/* 
           Build a PrivateRoute component that will 

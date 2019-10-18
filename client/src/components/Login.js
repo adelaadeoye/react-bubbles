@@ -16,13 +16,10 @@ const Login = props => {
 
   const submitHandler = e => {
     e.preventDefault();
-    console.log(credentials);
     axiosWithAuth()
     .post("/api/login", credentials)
     .then(res => {
       localStorage.setItem("token", res.data.payload);
-      console.log(props.history);
-      console.log(res);
       props.history.push('/bubblePage')
     }).catch(err => console.log(err.response));
   };
