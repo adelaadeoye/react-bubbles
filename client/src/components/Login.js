@@ -23,9 +23,8 @@ const Login = props => {
       localStorage.setItem("token", res.data.payload);
       console.log(props.history);
       console.log(res);
-      props.history.push('/bubbles')
+      props.history.push('/bubblePage')
     }).catch(err => console.log(err.response));
-    // // app.post("/api/login", (req, res) => {
   };
 
   return (
