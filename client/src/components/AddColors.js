@@ -1,6 +1,7 @@
 import React from 'react';
 
 const AddColor =()=>{
+  return(
     <form onSubmit={saveEdit}>
           <legend>edit color</legend>
           <label>
@@ -28,6 +29,6 @@ const AddColor =()=>{
             <button type="submit">save</button>
             <button onClick={() => setEditing(false)}>cancel</button>
           </div>
-        </form>
+        </form>)
 }
 export default AddColor;

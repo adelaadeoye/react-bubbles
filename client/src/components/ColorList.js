@@ -5,10 +5,8 @@ const initialColor = {
   color: "",
   code: { hex: "" }
 };
-const token = localStorage.getItem(token);
 let id;
 const ColorList = ({ colors, updateColors }) => {
-  console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
   const [addColor, setAddColor] = useState(initialColor);
@@ -19,7 +17,7 @@ const ColorList = ({ colors, updateColors }) => {
   };
   useEffect(() => {
     if (colorToEdit.id != null) id = colorToEdit.id;
-  }, [editing]);
+  }, [editing,colorToEdit.id]);
   const saveEdit = e => {
     // Make a put request to save your updated color
     // think about where will you get the id from...
@@ -37,7 +35,7 @@ const ColorList = ({ colors, updateColors }) => {
   const deleteColor = color => {
     // make a delete request to delete this color
     axiosWithAuth()
-      .delete(`/api/colors/${color.id}`,token)
+      .delete(`/api/colors/${color.id}`)
       .then(res => {
         console.log('cololll',res);
         // updateColors([...colors])
@@ -106,9 +104,8 @@ const ColorList = ({ colors, updateColors }) => {
           </div>
         </form>
       )}
-      <div className="spacer" />
-      {/* stretch - build another form here to add a color */}
-      <form onSubmit={addNewColor}>
+       {/* stretch - build another form here to add a color */}
+       <form onSubmit={addNewColor}>
           <legend>Add Color</legend>
           <label>
             color name:
@@ -139,6 +136,8 @@ const ColorList = ({ colors, updateColors }) => {
             <button type="submit">save</button>
           </div>
         </form>
+      {/* <div className="spacer" /> */}
+     
     </div>
   );
 };
